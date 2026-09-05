@@ -1,0 +1,106 @@
+import { PERMISSIONS } from '../packages/access/domain/permission.catalog.js';
+import { PERSONA_BY_ID } from '../packages/access/domain/persona.js';
+import { OUTLETS } from './master.js';
+
+const codesWhere = (predicate) => PERMISSIONS.filter(predicate).map((permission) => permission.code);
+
+const personaPermissions = (id) => [...PERSONA_BY_ID[id].permissions];
+const personaAttributes = (id) => ({ ...PERSONA_BY_ID[id].attributes });
+
+export const USERS = [
+  {
+    id: 'USR01',
+    name: 'Renata Wijoyo',
+    email: 'renata.wijoyo@amb.demo',
+    jobTitle: 'Inventory Manager',
+    outlet: null,
+    status: true,
+    createdAt: '2025-02-11T03:00:00.000Z',
+    permissions: personaPermissions('admin-penuh'),
+    attributes: personaAttributes('admin-penuh'),
+  },
+  {
+    id: 'USR02',
+    name: 'Bagas Prayoga',
+    email: 'bagas.prayoga@amb.demo',
+    jobTitle: 'Stock Controller',
+    outlet: null,
+    status: true,
+    createdAt: '2025-03-02T04:20:00.000Z',
+    permissions: personaPermissions('validator-restricted'),
+    attributes: personaAttributes('validator-restricted'),
+  },
+  {
+    id: 'USR03',
+    name: 'Laras Nuraini',
+    email: 'laras.nuraini@amb.demo',
+    jobTitle: 'Master Data Officer',
+    outlet: null,
+    status: true,
+    createdAt: '2025-03-19T02:45:00.000Z',
+    permissions: personaPermissions('staff-konfigurasi'),
+    attributes: personaAttributes('staff-konfigurasi'),
+  },
+  {
+    id: 'USR04',
+    name: 'Hendra Saputra',
+    email: 'hendra.saputra@amb.demo',
+    jobTitle: 'Finance Analyst',
+    outlet: null,
+    status: true,
+    createdAt: '2025-04-08T06:10:00.000Z',
+    permissions: personaPermissions('viewer'),
+    attributes: personaAttributes('viewer'),
+  },
+  {
+    id: 'USR05',
+    name: 'Dwi Anggara',
+    email: 'dwi.anggara@amb.demo',
+    jobTitle: 'Outlet Crew',
+    outlet: OUTLETS[0].displayName,
+    status: true,
+    createdAt: '2025-04-22T01:05:00.000Z',
+    permissions: personaPermissions('outlet-crew'),
+    attributes: personaAttributes('outlet-crew'),
+  },
+  {
+    id: 'USR06',
+    name: 'Sinta Marlina',
+    email: 'sinta.marlina@amb.demo',
+    jobTitle: 'Receiving Supervisor',
+    outlet: null,
+    status: true,
+    createdAt: '2025-05-14T07:30:00.000Z',
+    permissions: [...codesWhere((permission) => permission.group === 'receiving' && !permission.isMobile)],
+    attributes: {},
+  },
+  {
+    id: 'USR07',
+    name: 'Fajar Ramadhan',
+    email: 'fajar.ramadhan@amb.demo',
+    jobTitle: 'Waste Auditor',
+    outlet: null,
+    status: true,
+    createdAt: '2025-06-03T08:15:00.000Z',
+    permissions: [
+      'stockwaste.view',
+      'stockwaste.export',
+      'wasteapp.view',
+      'wasteapp.productAdd',
+      'wasteapp.productRemove',
+      'returnwaste.view',
+    ],
+    attributes: {},
+  },
+  {
+    id: 'USR08',
+    name: 'Nadia Kusuma',
+    email: 'nadia.kusuma@amb.demo',
+    jobTitle: 'Area Coordinator',
+    outlet: OUTLETS[6].displayName,
+    status: false,
+    createdAt: '2025-06-27T05:40:00.000Z',
+    permissions: ['stocktake.view', 'stocktake.validate', 'stockwaste.view', 'receiving.view'],
+    attributes: { 'stocktake.validate': { restricted: true } },
+  },
+];

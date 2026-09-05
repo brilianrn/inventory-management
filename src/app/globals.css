@@ -1,26 +1,155 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface: #f4f5f7;
+  --panel: #ffffff;
+  --panel-soft: #f5f6f8;
+  --line: #e3e5e9;
+  --line-strong: #cfd3da;
+  --strong: #14181f;
+  --body: #414753;
+  --subtle: #79808d;
+  --brand: #0f7a5a;
+  --brand-soft: #e6f4ee;
+  --brand-strong: #0b5d44;
+  --warn: #b26a00;
+  --warn-soft: #fdf1de;
+  --danger: #c0392b;
+  --danger-soft: #fbe9e7;
+  --info: #2563a8;
+  --info-soft: #e8f1fb;
+
+  --background: var(--surface);
+  --foreground: var(--body);
+  --card: var(--panel);
+  --card-foreground: var(--body);
+  --popover: var(--panel);
+  --popover-foreground: var(--body);
+  --primary: var(--brand);
+  --primary-foreground: #ffffff;
+  --secondary: var(--panel-soft);
+  --secondary-foreground: var(--strong);
+  --muted: var(--panel-soft);
+  --muted-foreground: var(--subtle);
+  --accent: var(--panel-soft);
+  --accent-foreground: var(--strong);
+  --destructive: var(--danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--brand);
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --surface: #0d1015;
+  --panel: #151a21;
+  --panel-soft: #1b212a;
+  --line: #262d38;
+  --line-strong: #333c4a;
+  --strong: #f2f4f7;
+  --body: #c4cad4;
+  --subtle: #8d95a3;
+  --brand: #3ec99a;
+  --brand-soft: #14322a;
+  --brand-strong: #6fe0ba;
+  --warn: #e0a45c;
+  --warn-soft: #322614;
+  --danger: #f08a7d;
+  --danger-soft: #35191a;
+  --info: #79b0ec;
+  --info-soft: #16273a;
+
+  --primary-foreground: #08120e;
+  --destructive-foreground: #1a0c0b;
 }
 
 @theme inline {
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-panel-soft: var(--panel-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-strong: var(--strong);
+  --color-body: var(--body);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-strong: var(--brand-strong);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-surface font-sans text-body antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--line-strong);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
