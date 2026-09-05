@@ -46,19 +46,58 @@ This is an **independent reconstruction built for portfolio purposes**. It was r
 
 ## Screenshots
 
-<!-- TODO: drop the images into docs/screenshots/ using these filenames and they will appear here -->
+The back office is built for the desk; the three field apps are built for a phone in one hand. Both are shown here.
 
-| Back office — document list | Permission-driven detail |
-|---|---|
-| ![Stock take list](docs/screenshots/01-stocktake-list.png) | ![Stock take detail](docs/screenshots/02-stocktake-detail.png) |
+### Desktop — back office
 
-| Outlet crew — counting sheet | Outlet crew — waste form |
-|---|---|
-| ![Counting sheet](docs/screenshots/03-counting-sheet.png) | ![Waste form](docs/screenshots/04-waste-form.png) |
+<!--
+  Capture at 1440×900. Filenames must match exactly.
+  01  /stocktake                     list, filter panel open
+  02  /stocktake/<id>                detail with variance highlighting
+  03  /usersetting/<id>              permission tabs, Restricted attribute visible
+  04  /ops/receiving/desk            delivery orders with the filter active
+-->
 
-| Demo control panel | User access & permissions |
-|---|---|
-| ![Demo panel](docs/screenshots/05-demo-panel.png) | ![User access](docs/screenshots/06-user-access.png) |
+| Stock take list | Document detail |
+|:--:|:--:|
+| <img src="docs/screenshots/desktop-01-stocktake-list.png" alt="Stock take list" width="100%"> | <img src="docs/screenshots/desktop-02-stocktake-detail.png" alt="Stock take detail" width="100%"> |
+| Filter panel, search, export and bulk validation | Live variance against the ±5% tolerance |
+
+| User access & permissions | Delivery orders |
+|:--:|:--:|
+| <img src="docs/screenshots/desktop-03-user-access.png" alt="User access" width="100%"> | <img src="docs/screenshots/desktop-04-receiving-desk.png" alt="Receiving desk" width="100%"> |
+| Two permission tabs and the Restricted attribute | Permission-gated actions, export needs a filter |
+
+### Mobile — outlet crew
+
+<!--
+  Capture at 390×844 (iPhone-ish). Filenames must match exactly.
+  01  /ops/stocktake/crew/form       counting sheet: brand chips + countdown
+  02  /ops/stockwaste/crew           waste category picker
+  03  /ops/stockwaste/crew/<cat>     product card: quantity, limit, photos
+  04  /ops/receiving/crew            DO list with the 22:30 countdown
+-->
+
+<table>
+  <tr>
+    <td align="center" width="25%"><img src="docs/screenshots/mobile-01-counting-sheet.png" alt="Counting sheet" width="100%"></td>
+    <td align="center" width="25%"><img src="docs/screenshots/mobile-02-waste-categories.png" alt="Waste categories" width="100%"></td>
+    <td align="center" width="25%"><img src="docs/screenshots/mobile-03-waste-product.png" alt="Waste product card" width="100%"></td>
+    <td align="center" width="25%"><img src="docs/screenshots/mobile-04-receiving-crew.png" alt="Receiving crew" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Counting sheet — brand chips and a two-hour countdown</sub></td>
+    <td align="center"><sub>Waste categories with filled counts</sub></td>
+    <td align="center"><sub>Quantity capped by the configured UoM limit</sub></td>
+    <td align="center"><sub>Delivery orders and the 22:30 cut-off</sub></td>
+  </tr>
+</table>
+
+### The demo control panel
+
+<!-- Capture at 1440×900 with the panel open: docs/screenshots/desktop-05-demo-panel.png -->
+
+<img src="docs/screenshots/desktop-05-demo-panel.png" alt="Demo control panel" width="420">
 
 ---
 
