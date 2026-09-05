@@ -46,17 +46,42 @@ This is an **independent reconstruction built for portfolio purposes**. It was r
 
 ## Screenshots
 
-The back office is built for the desk; the three field apps are built for a phone in one hand. Both are shown here.
+> Screenshots are being captured. Until they land, here is what each one will show.
 
-### Desktop — back office
+**Desktop — back office**
+
+- **Stock take list** — filter panel open, free-text search, export and bulk validation
+- **Document detail** — live variance against the ±5% tolerance, with out-of-tolerance rows flagged
+- **User access & permissions** — the two permission tabs and the Restricted attribute
+- **Delivery orders** — permission-gated actions; export only enables once a filter returns rows
+
+**Mobile — outlet crew**
+
+- **Counting sheet** — brand chips coloured by completeness, above a two-hour countdown
+- **Waste categories** — the picker, showing how many products each category already holds
+- **Waste product card** — quantity capped by the UoM limit configured in the back office
+- **Receiving crew** — delivery orders for one outlet and the countdown to the 22:30 cut-off
+
+**The demo control panel** — persona switch, per-permission checkboxes, and the time and connection simulations
 
 <!--
-  Capture at 1440×900. Filenames must match exactly.
-  01  /stocktake                     list, filter panel open
-  02  /stocktake/<id>                detail with variance highlighting
-  03  /usersetting/<id>              permission tabs, Restricted attribute visible
-  04  /ops/receiving/desk            delivery orders with the filter active
--->
+  Drop the files into docs/screenshots/ using the names below, then replace this
+  whole section with the markup that follows.
+
+  Desktop @ 1440x900
+    desktop-01-stocktake-list.png    /stocktake                  filter panel open
+    desktop-02-stocktake-detail.png  /stocktake/<id>             variance highlighting
+    desktop-03-user-access.png       /usersetting/<id>           Restricted attribute expanded
+    desktop-04-receiving-desk.png    /ops/receiving/desk         filter active, export enabled
+    desktop-05-demo-panel.png        any page, demo panel open
+
+  Mobile @ 390x844
+    mobile-01-counting-sheet.png     /ops/stocktake/crew/form    mid-session, chips part-filled
+    mobile-02-waste-categories.png   /ops/stockwaste/crew        after one category is filled
+    mobile-03-waste-product.png      /ops/stockwaste/crew/<cat>  product card with the limit line
+    mobile-04-receiving-crew.png     /ops/receiving/crew         outlet picked, countdown running
+
+### Desktop — back office
 
 | Stock take list | Document detail |
 |:--:|:--:|
@@ -69,14 +94,6 @@ The back office is built for the desk; the three field apps are built for a phon
 | Two permission tabs and the Restricted attribute | Permission-gated actions, export needs a filter |
 
 ### Mobile — outlet crew
-
-<!--
-  Capture at 390×844 (iPhone-ish). Filenames must match exactly.
-  01  /ops/stocktake/crew/form       counting sheet: brand chips + countdown
-  02  /ops/stockwaste/crew           waste category picker
-  03  /ops/stockwaste/crew/<cat>     product card: quantity, limit, photos
-  04  /ops/receiving/crew            DO list with the 22:30 countdown
--->
 
 <table>
   <tr>
@@ -95,9 +112,8 @@ The back office is built for the desk; the three field apps are built for a phon
 
 ### The demo control panel
 
-<!-- Capture at 1440×900 with the panel open: docs/screenshots/desktop-05-demo-panel.png -->
-
 <img src="docs/screenshots/desktop-05-demo-panel.png" alt="Demo control panel" width="420">
+-->
 
 ---
 
