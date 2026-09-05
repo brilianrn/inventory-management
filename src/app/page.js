@@ -32,7 +32,7 @@ const APPS = [
     summary:
       'Portal back office: memantau dan memvalidasi dokumen stock take, melihat dokumen waste, serta memegang seluruh konfigurasi yang mengendalikan tiga aplikasi lain.',
     pages: ['Stock Take', 'Waste', 'Stock Take Scheduler', 'Stock Waste App', 'Return Waste Products'],
-    href: '/dashboard',
+    moduleId: 'stock-management',
     hrefLabel: 'Buka dashboard',
   },
   {
@@ -42,7 +42,7 @@ const APPS = [
     summary:
       'Tiga wajah: Inventory Control menjadwalkan perhitungan per outlet, Technical Support mengelola akun crew, dan outlet crew menghitung stok fisik lewat layar mobile bersesi dua jam.',
     pages: ['Konfigurasi jadwal', 'Akun outlet crew', 'Form perhitungan (mobile)'],
-    href: '/ops/stocktake/control',
+    moduleId: 'stocktake-ops',
     hrefLabel: 'Buka Stock Take Ops',
   },
   {
@@ -52,7 +52,7 @@ const APPS = [
     summary:
       'Aplikasi mobile outlet crew untuk mencatat produk terbuang: pilih kategori, isi produk beserta foto bukti, lalu kirim sekali untuk seluruh kategori.',
     pages: ['Pilih kategori', 'Isi produk per kategori', 'Unggah bukti foto'],
-    href: '/ops/stockwaste/crew',
+    moduleId: 'stockwaste-ops',
     hrefLabel: 'Buka Form Waste',
   },
   {
@@ -62,7 +62,7 @@ const APPS = [
     summary:
       'Dua wajah: back office memantau surat jalan beserta statusnya, dan outlet crew menerima atau membatalkan DO dengan bukti foto sebelum batas pukul 22:30.',
     pages: ['Daftar Delivery Order', 'Detail dan validasi', 'Penerimaan (mobile)'],
-    href: '/ops/receiving/desk',
+    moduleId: 'receiving-ops',
     hrefLabel: 'Buka Receiving Ops',
   },
 ];
@@ -101,6 +101,11 @@ const PANEL_STEPS = [
 export default function HomePage() {
   const { filterModules, moduleEntry, profile, permissions } = usePermission();
   const modules = useMemo(() => filterModules(MODULES), [filterModules]);
+
+  const appHref = (moduleId) => {
+    const target = MODULES.find((item) => item.id === moduleId);
+    return target ? moduleEntry(target) : '/';
+  };
 
   return (
     <PanelShell>
@@ -213,7 +218,7 @@ export default function HomePage() {
                 </ul>
 
                 <Link
-                  href={app.href}
+                  href={appHref(app.moduleId)}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand"
                 >
                   {app.hrefLabel}
@@ -358,7 +363,7 @@ export default function HomePage() {
             {APPS.map((app) => (
               <Link
                 key={app.name}
-                href={app.href}
+                href={appHref(app.moduleId)}
                 className="inline-flex h-10 items-center rounded-lg border border-line px-4 text-sm font-medium text-body transition-colors hover:border-line-strong hover:text-strong"
               >
                 {app.name}
